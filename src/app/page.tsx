@@ -1,12 +1,52 @@
+"use client"
+import {useState} from "react"
 import Image from "next/image";
 import Link from 'next/link'
+import $ from "jquery"
 
 export default function Home() {
+  const [work1, setWork1] = useState(true)
+  const [work2, setWork2] = useState(false)
+  const [work3, setWork3] = useState(false)
+
+  const handleWorkOne = () => {
+    setWork1(true)
+    setWork2(false)
+    setWork3(false)
+    $(document).ready(function(){
+      $('#work1').show("1000")
+      $('#work2').hide("1000")
+      $('#work3').hide("1000")
+    })
+  }
+
+  const handleWorkTwo = () => {
+    setWork1(false)
+    setWork2(true)
+    setWork3(false)
+    $(document).ready(function(){
+      $('#work2').show("1000")
+      $('#work1').hide("1000")
+      $('#work3').hide("1000")
+    })
+  }
+
+  const handleWorkThree = () => {
+    setWork1(false)
+    setWork2(false)
+    setWork3(true)
+   $(document).ready(function(){
+      $('#work3').show("1000")
+      $('#work1').hide("1000")
+      $('#work2').hide("1000")
+    })
+  }
+
   return (
     <>
-    <div className="p-3 md:flex justify-center grid md:grid-cols-2 gap-8 max-screen-w-full mx-auto" id="content">
+    <div className="p-3 md:flex justify-center grid md:grid-cols-2 gap-8 max-screen-w-full mx-auto overflow-hidden" id="content">
     <div className="flex flex-col justify-center items-start md:items-start align-center">
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center items-center mx-auto">
         <h1 className="text-6xl md:max-w-screen-sm font-bold py-6 px-4"><span className="text-white text-3xl">Hello I'm Keith,</span><br/> a seasoned Fullstack Developer.</h1>
       </div>
         <p className="flex text-gray-500 mb-4 hover:text-white text-start-2 text-lg px-4">
@@ -50,12 +90,50 @@ export default function Home() {
    </div>
 
    <div className="mt-12 p-4 grid md:grid-cols-3 gap-4">
-    <div>
-       <p className="text-6xl md:max-w-screen-sm font-bold py-12 px-4"><span className="text-white text-2xl">I build scalable web application for </span><br/>Frontend Development <span className="font-normal text-white text-2xl">that's responsive using the latest tools in javascript.</span></p> 
+    <div className="mx-6 md:mt-34">  
+      <h2 className="text-2xl font-bold mb-4">Work Experience</h2>   
+       <div className="flex flex-cols items-center md:mt-20">
+        <div className="rotate-90">
+    <ol className="flex items-center w-full">
+    <li href="#" className={work1 ? "flex cursor-pointer w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-blue-100 after:border-4 after:inline-block dark:after:border-blue-700 hover:opacity-75" : "flex cursor-pointer w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-100 after:border-4 after:inline-block dark:after:border-gray-700 hover:opacity-75"} onClick={handleWorkOne}>
+        <span className={work1 ? "flex items-center justify-center w-10 h-10 bg-blue-100 rounded-full lg:h-12 lg:w-12 dark:bg-blue-700 shrink-0" : "flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0"}></span>
+    </li>
+    <li href="#" className={work2 ? "flex cursor-pointer w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-blue-100 after:border-4 after:inline-block dark:after:border-blue-700 hover:opacity-75" : "flex cursor-pointer w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-100 after:border-4 after:inline-block dark:after:border-gray-700 hover:opacity-75"} onClick={handleWorkTwo}>
+        <span className={work2 ? "flex items-center justify-center w-10 h-10 bg-blue-100 rounded-full lg:h-12 lg:w-12 dark:bg-blue-700 shrink-0" : "flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0"}></span>
+    </li>
+    <li href="#" className="flex cursor-pointer items-center w-full" onClick={handleWorkThree}>
+        <span className={work3 ? "flex items-center justify-center w-10 h-10 bg-blue-100 rounded-full lg:h-12 lg:w-12 dark:bg-blue-700 shrink-0 hover:opacity-75" : "flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0 hover:opacity-75"}></span>
+    </li> 
+    </ol>
+        </div>
+        <div>
+          <div className="my-3" id="work1">
+          <p className="text-gray-500">Rinarack Limited</p>
+          <p className="text-gray-500">Front-End Developer</p>
+          <i className="text-sm">Created a web app for a store delivery management platform with 200+ business customers to create, manage and monitor deliveries using React.</i>
+          </div>
+          <div className="my-3 hidden" id="work2">
+          <p className="text-gray-500">FunGo Logistics</p>
+          <p className="text-gray-500">Web Developer</p>
+          <i className="text-sm">Contributed to the development of a logistics web application that streamlined delivery processes and improved customer satisfaction.</i>
+          </div>
+          <div className="my-3 hidden" id="work3">
+          <p className="text-gray-500">KSMS</p>
+          <p className="text-gray-500">Software Developer</p>
+          <i className="text-sm">Developed a web application for a school management system that automated administrative tasks and improved communication between teachers, students, and parents.</i>
+          </div>
+        </div>
+       </div>
+      <Link href="#" className="flex md:mt-6 justify-space-evenly rounded-4xl text-white cursor-pointer hover:blur-[0.5px] bg-transparent-700 hover:bg-transparent-800 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-4 text-center dark:bg-transparent-600 dark:hover:bg-transparent-700 hover:scale-105 transition-transform duration-300 ease-in-out">
+        <span className="mx-2 mt-1">View More</span>
+        <svg className="w-7 h-7 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 12H5m14 0-4 4m4-4-4-4"/>
+        </svg>
+      </Link>
     </div>
-    <div className="col-span-2 rotate-x-5 -rotate-y-10 scale-80 hover:scale-83 transition-transform duration-300 ease-in-out">
+    <div className="col-span-2 -skew-2 hover:-skew-1 rotate-x-5 -rotate-y-10 scale-80 hover:scale-83 transition-transform duration-300 ease-in-out">
       <div>  
-      <nav className="w-full -skew-2 bg-transparent z-30">
+      <nav className="w-full bg-transparent z-30">
           <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-4 py-1">
           <div></div>
           <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
@@ -92,7 +170,7 @@ export default function Home() {
           </div>
       </nav>
 
-<div className="py-4 mt-4 -skew-2 bg-white rounded-lg shadow-md dark:bg-gray-800">
+<div className="py-4 mt-4 bg-white rounded-lg shadow-md dark:bg-gray-800">
 <div className="p-2 sm:ml-64"> 
    <div className="p-4">
       <div className="grid grid-cols-3 gap-4 mb-4">
@@ -216,7 +294,7 @@ export default function Home() {
       </div>
   </div>     
 </div>
-<aside id="separator-sidebar" className="absolute top-0 z-40 w-64 h-full transition-transform -translate-x-full sm:translate-x-0 invisible md:visible" aria-label="Sidebar">
+<aside id="separator-sidebar" className="absolute top-15 z-40 w-64 h-100 transition-transform -translate-x-full sm:translate-x-0 invisible md:visible" aria-label="Sidebar">
    <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
       <ul className="space-y-2 font-medium">
          <li>
