@@ -141,14 +141,14 @@ export default function Home (){
        <div className="flex flex-cols items-center md:mt-20">
         <div className="rotate-90">
     <ol className="flex items-center w-full">
-    <li className={work1 ? "flex cursor-pointer w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-blue-100 after:border-4 after:inline-block dark:after:border-blue-700 hover:opacity-75" : "flex cursor-pointer w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-100 after:border-4 after:inline-block dark:after:border-gray-700 hover:opacity-75"} onClick={handleWorkOne}>
-        <span className={work1 ? "flex items-center justify-center w-10 h-10 bg-blue-100 rounded-full lg:h-12 lg:w-12 dark:bg-blue-700 shrink-0" : "flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0"}></span>
+    <li className={work1 ? "flex cursor-pointer w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-blue-400 after:border-4 after:inline-block dark:after:border-blue-700 hover:opacity-75" : "flex cursor-pointer w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-100 after:border-4 after:inline-block dark:after:border-gray-700 hover:opacity-75"} onClick={handleWorkOne}>
+        <span className={work1 ? "flex items-center justify-center w-10 h-10 bg-blue-400 rounded-full lg:h-12 lg:w-12 dark:bg-blue-700 shrink-0" : "flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0"}></span>
     </li>
-    <li className={work2 ? "flex cursor-pointer w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-blue-100 after:border-4 after:inline-block dark:after:border-blue-700 hover:opacity-75" : "flex cursor-pointer w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-100 after:border-4 after:inline-block dark:after:border-gray-700 hover:opacity-75"} onClick={handleWorkTwo}>
-        <span className={work2 ? "flex items-center justify-center w-10 h-10 bg-blue-100 rounded-full lg:h-12 lg:w-12 dark:bg-blue-700 shrink-0" : "flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0"}></span>
+    <li className={work2 ? "flex cursor-pointer w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-blue-400 after:border-4 after:inline-block dark:after:border-blue-700 hover:opacity-75" : "flex cursor-pointer w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-100 after:border-4 after:inline-block dark:after:border-gray-700 hover:opacity-75"} onClick={handleWorkTwo}>
+        <span className={work2 ? "flex items-center justify-center w-10 h-10 bg-blue-400 rounded-full lg:h-12 lg:w-12 dark:bg-blue-700 shrink-0" : "flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0"}></span>
     </li>
     <li className="flex cursor-pointer items-center w-full" onClick={handleWorkThree}>
-        <span className={work3 ? "flex items-center justify-center w-10 h-10 bg-blue-100 rounded-full lg:h-12 lg:w-12 dark:bg-blue-700 shrink-0 hover:opacity-75" : "flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0 hover:opacity-75"}></span>
+        <span className={work3 ? "flex items-center justify-center w-10 h-10 bg-blue-400 rounded-full lg:h-12 lg:w-12 dark:bg-blue-700 shrink-0 hover:opacity-75" : "flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0 hover:opacity-75"}></span>
     </li> 
     </ol>
         </div>
@@ -172,7 +172,7 @@ export default function Home (){
        </div>
       <Link href="#" className="flex md:mt-6 justify-space-evenly rounded-4xl text-white cursor-pointer hover:blur-[0.5px] bg-transparent-700 hover:bg-transparent-800 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-4 text-center dark:bg-transparent-600 dark:hover:bg-transparent-700 hover:scale-105 transition-transform duration-300 ease-in-out">
         <span className="mx-2 mt-1">View More</span>
-        <svg className="w-7 h-7 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <svg className="w-7 h-7 text-gray-400 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
         <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 12H5m14 0-4 4m4-4-4-4"/>
         </svg>
       </Link>
@@ -778,6 +778,10 @@ I have strong understanding for both technical implementation and business requi
   </div>
   </div>
 
+</div>
+
+<div className="flex justify-center">
+  <p>&copy; {new Date().getFullYear()}</p>
 </div>
 
    </>
