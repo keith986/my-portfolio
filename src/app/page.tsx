@@ -736,6 +736,7 @@ I have strong understanding for both technical implementation and business requi
 </div>
 
 <div className="md:flex justify-center relative">
+  <div className="flex flex-row justify-center">
   <div className="rounded p-1 nav-option mt-6" title="Next Js">
    <Image className="object-cover w-20 rounded-t-lg h-20 border border-gray p-4 rounded bg-gradient-to-b from-gray-400 to-transparent" src="/images/next.png" width="100" height="100" alt=""/>
   </div>
@@ -751,6 +752,9 @@ I have strong understanding for both technical implementation and business requi
   <div className="rounded p-1 nav-option mt-6" title="Express Js">
    <Image className="object-cover w-20 rounded-t-lg h-20 border border-gray p-4 rounded bg-gradient-to-b from-gray-600 to-transparent" src="/images/express-js.png" width="100" height="100" alt=""/>
   </div>
+  </div>
+
+  <div className="flex flex-row justify-center">
   <div className="rounded p-1 nav-option mt-6" title="CSS">
    <Image className="object-cover w-20 rounded-t-lg h-20 border border-blue p-4 rounded bg-gradient-to-b from-sky-600 to-transparent" src="/images/css.png" width="100" height="100" alt=""/>
   </div>
@@ -760,6 +764,9 @@ I have strong understanding for both technical implementation and business requi
   <div className="rounded p-1 nav-option mt-6" title="Bootstrap">
    <Image className="object-cover w-20 rounded-t-lg h-20 border border-purple p-4 rounded bg-gradient-to-b from-purple-400 to-transparent" src="/images/bootstrap.png" width="100" height="100" alt=""/>
   </div>
+  </div>
+
+  <div className="flex flex-row justify-center">
   <div className="rounded p-1 nav-option mt-6" title="Firebase">
    <Image className="object-cover w-20 rounded-t-lg h-20 border border-green p-4 rounded bg-gradient-to-b from-orange-300 to-transparent" src="/images/firebase.png" width="100" height="100" alt=""/>
   </div>
@@ -769,6 +776,8 @@ I have strong understanding for both technical implementation and business requi
   <div className="rounded p-1 nav-option mt-6" title="MySQL">
    <Image className="object-cover w-20 rounded-t-lg h-20 border border-blue p-4 rounded bg-gradient-to-b from-sky-900 to-transparent" src="/images/mysql.png" width="100" height="100" alt=""/>
   </div>
+  </div>
+
 </div>
 
    </>
