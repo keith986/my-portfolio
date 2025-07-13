@@ -1,17 +1,19 @@
 "use client"
-import {useState} from "react"
+import {useState, useActionState} from "react"
 import Image from "next/image";
 import Link from 'next/link'
 import $ from "jquery"
+import handleMpesaSubmit from "./actions/stkpush.ts"
 
-export default function Home() {
+export default function Home (){
   const [work1, setWork1] = useState(true)
   const [work2, setWork2] = useState(false)
   const [work3, setWork3] = useState(false)
+  const [state,myaction,pending] = useActionState(handleMpesaSubmit, {success: false})
 
   const handleWorkOne = () => {
     setWork1(true)
-    setWork2(false)
+    setWork2(false) 
     setWork3(false)
     $(document).ready(function(){
       $('#work1').show("1000")
@@ -221,13 +223,14 @@ export default function Home() {
               </li>
             </ul>
           </div>
-          </div></nav>
+          </div>
+</nav>
 <div className="py-4 mt-4 bg-white rounded-lg shadow-md dark:bg-gray-800 h-full">
 <div className="p-2 sm:ml-64" id="dash"> 
    <div className="p-4">
       <div className="grid grid-cols-3 gap-4 mb-4">
          <div className="flex items-center justify-center h-24 rounded-sm bg-gray-50 dark:bg-gray-800">
-            <p className="text-2xl text-white-400 dark:text-white">
+            <p className="text-2xl text-gray-600 dark:text-gray-400">
                Welcome Keith!
             </p>
          </div>
@@ -249,7 +252,7 @@ export default function Home() {
          </div>
       </div>
       <div className="flex items-start justify-start mb-4 rounded-sm p-3">
-        <p className="text-sm text-gray-300 dark:text-gray-400 p-2">
+        <p className="text-sm text-gray-500 dark:text-gray-400 p-2">
          Recent messages
         </p>
       </div>
@@ -350,7 +353,7 @@ export default function Home() {
    <div className="p-4 rounded-lg dark:border-gray-700">
       <div className="grid grid-cols-2 gap-4 mb-2">
          <div className="flex items-center justify-center h-24 rounded-sm bg-gray-50 dark:bg-gray-800">
-            <p className="text-2xl text-white-400 dark:text-white">
+            <p className="text-2xl text-gray-400 dark:text-gray">
                <svg className="w-8 h-8 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                   <path fillRule="evenodd" d="M8 7V2.221a2 2 0 0 0-.5.365L3.586 6.5a2 2 0 0 0-.365.5H8Zm2 0V2h7a2 2 0 0 1 2 2v.126a5.087 5.087 0 0 0-4.74 1.368v.001l-6.642 6.642a3 3 0 0 0-.82 1.532l-.74 3.692a3 3 0 0 0 3.53 3.53l3.694-.738a3 3 0 0 0 1.532-.82L19 15.149V20a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9h5a2 2 0 0 0 2-2Z" clipRule="evenodd"/>
                   <path fillRule="evenodd" d="M17.447 8.08a1.087 1.087 0 0 1 1.187.238l.002.001a1.088 1.088 0 0 1 0 1.539l-.377.377-1.54-1.542.373-.374.002-.001c.1-.102.22-.182.353-.237Zm-2.143 2.027-4.644 4.644-.385 1.924 1.925-.385 4.644-4.642-1.54-1.54Zm2.56-4.11a3.087 3.087 0 0 0-2.187.909l-6.645 6.645a1 1 0 0 0-.274.51l-.739 3.693a1 1 0 0 0 1.177 1.176l3.693-.738a1 1 0 0 0 .51-.274l6.65-6.646a3.088 3.088 0 0 0-2.185-5.275Z" clipRule="evenodd"/>
@@ -381,7 +384,7 @@ export default function Home() {
  
    <input type="hidden" id="rname" name="rname" value=""/>
    <input type="hidden" id="receipts" name="receipts" value=""/>
-  <textarea name="message" className="w-full bg-gray-50 min-h-50 p-2 text-gray-800" placeholder="Compose a new message" id="message"></textarea>
+  <textarea name="message" className="w-full bg-gray-50 min-h-50 p-2 text-gray-800 border rounded outline-none" placeholder="Compose a new message" id="message"></textarea>
   <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 cursor-pointer">Send a message</button>
  
  </div>
@@ -389,12 +392,11 @@ export default function Home() {
 
    </div>
 </div>
-
 <div className="p-4 sm:ml-64 hidden" id="inbox">
    <div className="p-4 rounded-lg dark:border-gray-700">
       <div className="grid grid-cols-3 gap-4 mb-4">
          <div className="flex items-center justify-center h-24 rounded-sm bg-gray-50 dark:bg-gray-800">
-            <p className="text-2xl text-white-400 dark:text-white">
+            <p className="text-2xl text-gray-400 dark:text-gray">
                My Inboxes
             </p>
          </div>
@@ -426,7 +428,7 @@ export default function Home() {
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                 </svg>
             </div>
-             <input type="text" id="table-search" className="block mb-2 pt-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search by username"/>
+             <input type="text" id="table-search" className="outline-none block mb-2 pt-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search by username"/>
        </div>
     
 
@@ -499,12 +501,11 @@ export default function Home() {
 
    </div>
 </div>
-
 <div className="p-4 sm:ml-64 hidden" id="users">
    <div className="p-4 rounded-lg dark:border-gray-700">
       <div className="grid grid-cols-2 gap-4 mb-4">
          <div className="flex items-center justify-center h-24 rounded-sm bg-gray-50 dark:bg-gray-800">
-            <p className="text-2xl text-white-400 dark:text-white">
+            <p className="text-2xl text-gray-400 dark:text-gray">
                All Users
             </p>
          </div>
@@ -526,7 +527,7 @@ export default function Home() {
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                 </svg>
             </div>
-             <input type="text" id="table-search" className="block mb-2 pt-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search by username"/>
+             <input type="text" id="table-search" className="outline-none block mb-2 pt-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search by username"/>
     </div>
   
 
@@ -628,7 +629,6 @@ export default function Home() {
 
    </div>
 </div>
-
 <aside id="separator-sidebar" className="absolute top-15 z-40 w-64 h-100 transition-transform -translate-x-full sm:translate-x-0 invisible md:visible" aria-label="Sidebar">
    <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
       <ul className="space-y-2 font-medium">
@@ -700,20 +700,22 @@ export default function Home() {
 <div className="flex items-center justify-center mb-4">
 <div className="w-full relative overflow-x-auto p-2 sm:rounded-lg">
 <section className="bg-white py-4 antialiased dark:bg-gray-900 rounded-lg" id="pwm">
-   <h1 className="mb-2 flex items-center text-2xl gap-1 font-medium text-gray-900 dark:text-white justify-center">Make payments with Mpesa</h1>
-   <i className="flex justify-center">Send a Mpesa Prompt.</i>
+   <h1 className="mb-2 flex items-center text-2xl gap-1 font-medium text-gray-900 dark:text-white justify-center p-2">Trial payment with Mpesa Integration</h1>
+   <i className="flex justify-center text-gray-500">Send an Mpesa Prompt.</i>
   <div className="mx-auto max-w-screen-xl 2xl:px-0">
     <div className="mx-auto max-w-5xl">
-      <div className="mt-6 sm:mt-8 lg:flex lg:items-start lg:justify-center lg:gap-12">
-        <div  className="w-full rounded-lg p-4 shadow-sm sm:p-6 lg:max-w-xl lg:p-8">
+      { state.success && <p className="flex justify-center text-green-500 dark:text-green-700" id="suc">{state.message}</p> }
+       { state.error && <p className="text-red-500 flex justify-center" id="err">{state.error}</p> }
+      <div className="mt-6 sm:mt-4 lg:flex lg:items-start lg:justify-center lg:gap-12">
+        <form action={myaction}  className="w-full rounded-lg p-4 shadow-sm sm:p-6 lg:max-w-xl lg:p-8">
           <div className="mb-6 grid grid-cols gap-4">
             <div>
               <label className="mb-2 flex items-center text-sm gap-1 font-medium text-gray-900 dark:text-white">Enter your phone number</label>
-              <input type="number" id="phonenumber" name="phonenumber"  aria-describedby="helper-text-explanation" className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500" placeholder="2547********" required />
+              <input type="number" id="phonenumber" name="phonenumber"  aria-describedby="helper-text-explanation" className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500" placeholder="enter your phone number" required />
             </div>
           </div>
-          <button type="submit"  className="cursor-pointer flex w-full items-center justify-center rounded-lg bg-green-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-green-800 focus:outline-none focus:ring-4  focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Send Mpesa STK Push</button>
-        </div>
+          <button type="submit"  className="cursor-pointer flex w-full items-center justify-center rounded-lg bg-green-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-green-800 focus:outline-none focus:ring-4  focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">{pending ? "Please wait" :"Send Mpesa STK Push"}</button>
+        </form>
       </div>
     </div>
   </div>
@@ -722,9 +724,51 @@ export default function Home() {
 </div>
 </div>
 </div>
-<div className="mx-6 md:mt-34">
-<span>Js, Mpesa, Next Js</span>
+<div className="mx-4 md:mt-15 p-10">
+<div>
+<i>
+Apart from my frontend skills, I also possess a comprehensive backend development skills. I have an enterprise-level capabilities in payment processing, security, and system integration.
+I am keen on security matters such as (environment variables, input validation), proper error handling throughout the entire flow, and the sophisticated data transformation logic (phone number formatting). 
+I have strong understanding for both technical implementation and business requirements of financial applications.
+</i>
 </div>
+</div>
+</div>
+
+<div className="md:flex justify-center relative">
+  <div className="rounded p-1 nav-option mt-6" title="Next Js">
+   <Image className="object-cover w-20 rounded-t-lg h-20 border border-gray p-4 rounded bg-gradient-to-b from-gray-400 to-transparent" src="/images/next.png" width="100" height="100" alt=""/>
+  </div>
+  <div className="rounded p-1 nav-option mt-6" title="React Js">
+   <Image className="object-cover w-20 rounded-t-lg h-20 border border-sky p-4 rounded bg-gradient-to-b from-sky-400 to-transparent" src="/images/reactjs.png" width="100" height="100" alt=""/>
+  </div>
+  <div className="rounded p-1 nav-option mt-6" title="TypeScript">
+   <Image className="object-cover w-20 rounded-t-lg h-20 border border-blue p-4 rounded bg-gradient-to-b from-blue-500 to-transparent" src="/images/typescript.png" width="100" height="100" alt=""/>
+  </div>
+  <div className="rounded p-1 nav-option mt-6" title="Node Js">
+   <Image className="object-cover w-20 rounded-t-lg h-20 border border-green p-4 rounded bg-gradient-to-b from-green-300 to-transparent" src="/images/nodejs.png" width="100" height="100" alt=""/>
+  </div>
+  <div className="rounded p-1 nav-option mt-6" title="Express Js">
+   <Image className="object-cover w-20 rounded-t-lg h-20 border border-gray p-4 rounded bg-gradient-to-b from-gray-600 to-transparent" src="/images/express-js.png" width="100" height="100" alt=""/>
+  </div>
+  <div className="rounded p-1 nav-option mt-6" title="CSS">
+   <Image className="object-cover w-20 rounded-t-lg h-20 border border-blue p-4 rounded bg-gradient-to-b from-sky-600 to-transparent" src="/images/css.png" width="100" height="100" alt=""/>
+  </div>
+  <div className="rounded p-1 nav-option mt-6" title="Tailwind CSS">
+   <Image className="object-cover w-20 rounded-t-lg h-20 border border-sky p-4 rounded bg-gradient-to-b from-sky-400 to-transparent" src="/images/tailwind.png" width="100" height="100" alt=""/>
+  </div>
+  <div className="rounded p-1 nav-option mt-6" title="Bootstrap">
+   <Image className="object-cover w-20 rounded-t-lg h-20 border border-purple p-4 rounded bg-gradient-to-b from-purple-400 to-transparent" src="/images/bootstrap.png" width="100" height="100" alt=""/>
+  </div>
+  <div className="rounded p-1 nav-option mt-6" title="Firebase">
+   <Image className="object-cover w-20 rounded-t-lg h-20 border border-green p-4 rounded bg-gradient-to-b from-orange-300 to-transparent" src="/images/firebase.png" width="100" height="100" alt=""/>
+  </div>
+  <div className="rounded p-1 nav-option mt-6" title="MongoDB">
+   <Image className="object-cover w-20 rounded-t-lg h-20 border border-green p-4 rounded bg-gradient-to-b from-green-500 to-transparent" src="/images/mongodb.png" width="100" height="100" alt=""/>
+  </div>
+  <div className="rounded p-1 nav-option mt-6" title="MySQL">
+   <Image className="object-cover w-20 rounded-t-lg h-20 border border-blue p-4 rounded bg-gradient-to-b from-sky-900 to-transparent" src="/images/mysql.png" width="100" height="100" alt=""/>
+  </div>
 </div>
 
    </>
