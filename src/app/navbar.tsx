@@ -10,7 +10,7 @@ export default function Navbar() {
     <button type="button" className="text-white cursor-pointer bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">hire me</button>
   </div>
 
-  <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1 rounded-4xl border border-gray-800 p-2 backdrop-blur-sm bg-white/30 dark:bg-gray-800">
+  <div className="invisible items-center justify-between hidden w-full md:flex md:w-auto md:order-1 rounded-4xl border border-gray-800 p-2 backdrop-blur-sm bg-white/30 dark:bg-gray-800">
     <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
       <li>
         <a href="#" className="flex block py-2 px-3 md:p-0 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-white-700 md:dark:text-white-500 text-sm" aria-current="page">
