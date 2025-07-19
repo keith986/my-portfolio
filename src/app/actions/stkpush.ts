@@ -2,7 +2,7 @@
 import Axios from "axios"
 import { Buffer } from 'node:buffer'
 
-export default async function handleMpesaSubmit(prevstate, formData: FormData){
+export default async function handleMpesaSubmit(prevstate : any, formData: FormData){
 try {
         // Add loading delay (consider removing in production)
         await new Promise((resolve) => { setTimeout(resolve, 2000) });
@@ -73,7 +73,7 @@ try {
 async function getAccessToken(consumer_key, consumer_secret){
     try {
         const url = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials";
-        const auth = "Basic " + Buffer.from(consumer_key + ":" + consumer_secret).toString("base64");
+        const auth = "Basic " + Buffer.from(consumer_key  + ":" + consumer_secret).toString("base64");
 
         const response = await Axios.get(url, {
             headers: {
