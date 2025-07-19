@@ -101,6 +101,15 @@ async function initiateSTKPush({
     callback_url,
     account_reference,
     transaction_desc
+}: {
+    accessToken: string,
+    shortcode: string,
+    passkey: string,
+    phone_number: string,
+    amount: string,
+    callback_url: string,
+    account_reference: string,
+    transaction_desc: string
 }) {
     try {
         const url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest";
