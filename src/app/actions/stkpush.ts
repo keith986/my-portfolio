@@ -180,7 +180,7 @@ function generateTimestamp() {
 }
 
 // Helper function to format phone number
-function formatPhoneNumber(phone) {
+function formatPhoneNumber(phone : string) {
     if (typeof phone !== 'string') return null;
     
     // Remove any spaces, dashes, or other non-numeric characters
