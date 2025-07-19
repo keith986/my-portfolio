@@ -161,7 +161,7 @@ async function initiateSTKPush({
         console.error("STK Push Error:", error.response?.data || error.message);
         return {
             success: false,
-            error: error.response?.data?.errorMessage || "Network error occurred"
+            error: error as Error|| "Network error occurred"
         };
     }
 }
