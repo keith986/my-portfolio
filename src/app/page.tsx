@@ -90,7 +90,7 @@ export default function Home (){
 
   return (
     <>
-    <div className="p-3 md:flex justify-center grid md:grid-cols-2 gap-8 max-screen-w-full mx-auto overflow-hidden" id="content">
+   <div className="p-3 md:flex justify-center grid md:grid-cols-2 gap-8 max-screen-w-full mx-auto overflow-hidden" id="content">
     <div className="flex flex-col justify-center items-start md:items-start align-center">
       <div className="flex justify-center items-center mx-auto">
         <h1 className="text-6xl md:max-w-screen-sm font-bold py-6 px-4"><span className="text-white text-3xl">Hello I'm Keith,</span><br/> a seasoned Fullstack Developer.</h1>
@@ -109,14 +109,14 @@ export default function Home (){
               </svg>
               <span className="mx-2 mt-1">GitHub</span>
             </Link>
-            <Link href="#" target="_blank" className="flex mx-4 text-white cursor-pointer hover:blur-[0.5px] hover:border  bg-transparent-700 hover:bg-transparent-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-4xl text-sm px-4 py-4 text-center dark:bg-transparent-600 dark:hover:bg-transparent-700 dark:focus:ring-gray-800 hover:scale-105 transition-transform duration-300 ease-in-out">
+            <Link href="https://www.linkedin.com/in/keith-baraka-69538136b" target="_blank" className="flex mx-4 text-white cursor-pointer hover:blur-[0.5px] hover:border  bg-transparent-700 hover:bg-transparent-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-4xl text-sm px-4 py-4 text-center dark:bg-transparent-600 dark:hover:bg-transparent-700 dark:focus:ring-gray-800 hover:scale-105 transition-transform duration-300 ease-in-out">
               <svg className="w-6 h-6 text-white-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
               <path fillRule="evenodd" d="M12.51 8.796v1.697a3.738 3.738 0 0 1 3.288-1.684c3.455 0 4.202 2.16 4.202 4.97V19.5h-3.2v-5.072c0-1.21-.244-2.766-2.128-2.766-1.827 0-2.139 1.317-2.139 2.676V19.5h-3.19V8.796h3.168ZM7.2 6.106a1.61 1.61 0 0 1-.988 1.483 1.595 1.595 0 0 1-1.743-.348A1.607 1.607 0 0 1 5.6 4.5a1.601 1.601 0 0 1 1.6 1.606Z" clipRule="evenodd"/>
               <path d="M7.2 8.809H4V19.5h3.2V8.809Z"/>
               </svg>
               <span className="mx-2 mt-1">LinkedIn</span>
             </Link>
-            <Link href="mailto:keithkelly986@gmail.com" target="_blank" className="flex text-white cursor-pointer hover:blur-[0.5px] hover:border bg-transparent-700 hover:bg-transparent-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-4xl text-sm px-4 py-4 text-center dark:bg-transparent-600 dark:hover:bg-transparent-700 dark:focus:ring-gray-800 hover:scale-105 transition-transform duration-300 ease-in-out">
+            <Link href="https://mail.google.com/mailto:keithkelly986@gmail.com" target="_blank" className="flex text-white cursor-pointer hover:blur-[0.5px] hover:border bg-transparent-700 hover:bg-transparent-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-4xl text-sm px-4 py-4 text-center dark:bg-transparent-600 dark:hover:bg-transparent-700 dark:focus:ring-gray-800 hover:scale-105 transition-transform duration-300 ease-in-out">
               <svg className="w-6 h-6 text-white-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
               <path stroke="currentColor" strokeLinecap="round" strokeWidth="2" d="m3.5 5.5 7.893 6.036a1 1 0 0 0 1.214 0L20.5 5.5M4 19h16a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Z"/>
               </svg>
