@@ -70,7 +70,7 @@ try {
 
 
 // Helper function to get access token
-async function getAccessToken(consumer_key, consumer_secret){
+async function getAccessToken(consumer_key:string, consumer_secret:string){
     try {
         const url = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials";
         const auth = "Basic " + Buffer.from(consumer_key  + ":" + consumer_secret).toString("base64");
