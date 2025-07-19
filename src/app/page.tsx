@@ -3,7 +3,7 @@ import {useState, useActionState} from "react"
 import Image from "next/image";
 import Link from 'next/link'
 import $ from "jquery"
-import handleMpesaSubmit from "./actions/stkpush.ts"
+import handleMpesaSubmit from "./actions/stkpush"
 
 export default function Home (){
   const [work1, setWork1] = useState(true)
