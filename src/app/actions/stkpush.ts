@@ -86,7 +86,7 @@ async function getAccessToken(consumer_key:string, consumer_secret:string){
         console.log("Access Token retrieved successfully");
         return response.data.access_token;
     } catch (error) {
-        console.error("Access Token Error:", error.response?.data || error.message);
+        console.error("Access Token Error:", error as Error);
         return null;
     }
 }
