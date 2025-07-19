@@ -158,7 +158,7 @@ async function initiateSTKPush({
 
 
     } catch (error) {
-        console.error("STK Push Error:", error.response?.data || error.message);
+        console.error("STK Push Error:", error as Error);
         return {
             success: false,
             error: error as Error|| "Network error occurred"
