@@ -2,6 +2,24 @@
 import Axios from "axios"
 import { Buffer } from 'node:buffer'
 
+interface StkPushResponse {
+    success: boolean;
+    CheckoutRequestID?: string;
+    MerchantRequestID?: string;
+    error?: string;
+}
+
+interface StkPushParams {
+    accessToken: string;
+    shortcode: string;
+    passkey: string;
+    phone_number: string;
+    amount: string;
+    callback_url: string;
+    account_reference: string;
+    transaction_desc: string;
+}
+
 export default async function handleMpesaSubmit(prevstate : any, formData: FormData){
 try {
         // Add loading delay (consider removing in production)
@@ -21,11 +39,15 @@ try {
         }
 
         // Environment variables for security
-        const consumer_key = process.env.MPESA_CONSUMER_KEY || "GzHc4d76tGcqGYZ7EC9cpsegSEJvBqJPB5CKAn9GIcfVGhv9";
-        const consumer_secret = process.env.MPESA_CONSUMER_SECRET || "fA6skzHeqDmjKEuOTGMEIYPCxrN8zOTnkKvOA3JuhzJ9rXyGCCyF0ZENI5EkNEAL";
-        const passkey = process.env.MPESA_PASS_KEY || "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919";
-        const shortcode = process.env.MPESA_SHORTCODE || "174379";
-        const callback_url = process.env.MPESA_CALLBACK_URL || "https://mydomain.com/api/mpesa/callback";
+        const consumer_key = process.env.MPESA_CONSUMER_KEY 
+        const consumer_secret = process.env.MPESA_CONSUMER_SECRET 
+        const passkey = process.env.MPESA_PASS_KEY 
+        const shortcode = process.env.MPESA_SHORTCODE
+        const callback_url = process.env.MPESA_CALLBACK_URL 
+        
+        if (!consumer_key || !consumer_secret || !passkey || !shortcode || !callback_url) {
+            return { success: false, error: "Missing environment variables" };
+        }
 
         // STEP 1: GET ACCESS TOKEN
         const accessToken = await getAccessToken(consumer_key, consumer_secret);

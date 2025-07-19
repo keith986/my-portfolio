@@ -9,16 +9,16 @@ export default function Home (){
   const [work1, setWork1] = useState(true)
   const [work2, setWork2] = useState(false)
   const [work3, setWork3] = useState(false)
-  const [state,myaction,pending] = useActionState(handleMpesaSubmit, {success: false})
+  const [state,myaction,pending] = useActionState(handleMpesaSubmit, {success: false, error : null})
 
   const handleWorkOne = () => {
     setWork1(true)
     setWork2(false) 
     setWork3(false)
     $(document).ready(function(){
-      $('#work1').show("1000")
-      $('#work2').hide("1000")
-      $('#work3').hide("1000")
+      $('#work1').show("slow")
+      $('#work2').hide("slow")
+      $('#work3').hide("slow")
     })
   }
 
@@ -27,9 +27,9 @@ export default function Home (){
     setWork2(true)
     setWork3(false)
     $(document).ready(function(){
-      $('#work2').show("1000")
-      $('#work1').hide("1000")
-      $('#work3').hide("1000")
+      $('#work2').show("slow")
+      $('#work1').hide("slow")
+      $('#work3').hide("slow")
     })
   }
 
@@ -38,9 +38,9 @@ export default function Home (){
     setWork2(false)
     setWork3(true)
    $(document).ready(function(){
-      $('#work3').show("1000")
-      $('#work1').hide("1000")
-      $('#work2').hide("1000")
+      $('#work3').show("slow")
+      $('#work1').hide("slow")
+      $('#work2').hide("slow")
     })
   }
 
