@@ -172,7 +172,7 @@ export default function Home (){
        </div>
     </div>
 <div className="col-span-2 -skew-2 hover:-skew-1 rotate-x-5 -rotate-y-10 scale-80 hover:scale-83 transition-transform duration-300 ease-in-out">
-<div>  
+<div className="appearse">  
 <nav className="w-full bg-transparent z-30">
           <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-4 py-1">
           <div></div>
