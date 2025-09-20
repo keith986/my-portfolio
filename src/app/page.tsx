@@ -116,7 +116,7 @@ export default function Home (){
               </svg>
               <span className="mx-2 mt-1">LinkedIn</span>
             </Link>
-            <Link href="https://mail.google.com/mail/?view=cm&to=keithkelly986@gmail.com&su=Portfolio Contact" target="_blank" className="flex text-white cursor-pointer hover:blur-[0.5px] hover:border bg-transparent-700 hover:bg-transparent-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-4xl text-sm px-4 py-4 text-center dark:bg-transparent-600 dark:hover:bg-transparent-700 dark:focus:ring-gray-800 hover:scale-105 transition-transform duration-300 ease-in-out">
+            <Link href="https://mail.google.com/mailto:keithkelly986@gmail.com" target="_blank" className="flex text-white cursor-pointer hover:blur-[0.5px] hover:border bg-transparent-700 hover:bg-transparent-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-4xl text-sm px-4 py-4 text-center dark:bg-transparent-600 dark:hover:bg-transparent-700 dark:focus:ring-gray-800 hover:scale-105 transition-transform duration-300 ease-in-out">
               <svg className="w-6 h-6 text-white-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
               <path stroke="currentColor" strokeLinecap="round" strokeWidth="2" d="m3.5 5.5 7.893 6.036a1 1 0 0 0 1.214 0L20.5 5.5M4 19h16a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Z"/>
               </svg>
