@@ -39,11 +39,11 @@ try {
         }
 
         // Environment variables for security
-        const consumer_key = process.env.MPESA_CONSUMER_KEY 
-        const consumer_secret = process.env.MPESA_CONSUMER_SECRET
-        const passkey = process.env.MPESA_PASS_KEY 
-        const shortcode = process.env.MPESA_SHORTCODE
-        const callback_url = process.env.MPESA_CALLBACK_URL
+        const consumer_key = process.env.MPESA_CONSUMER_KEY || "GzHc4d76tGcqGYZ7EC9cpsegSEJvBqJPB5CKAn9GIcfVGhv9" 
+        const consumer_secret = process.env.MPESA_CONSUMER_SECRET || "fA6skzHeqDmjKEuOTGMEIYPCxrN8zOTnkKvOA3JuhzJ9rXyGCCyF0ZENI5EkNEAL"
+        const passkey = process.env.MPESA_PASS_KEY || "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919"
+        const shortcode = process.env.MPESA_SHORTCODE || "174379"
+        const callback_url = process.env.MPESA_CALLBACK_URL || "https://keithresume.netlify.app/api/mpesa/callback"
         
         if (!consumer_key || !consumer_secret || !passkey || !shortcode || !callback_url) {
             return { success: false, error: "Missing environment variables" };
