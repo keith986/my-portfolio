@@ -1,14 +1,13 @@
 import Link from "next/link"
 
 export default function Navbar() {
-  return (
-   
-<nav>
+  return (   
+<nav className="bg-slate-500">
   <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
   <div></div>
 
   <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-    <Link href="https://mail.google.com/mail/?view=cm&to=keithkelly986@gmail.com&su=Let us talk!" target="_blank" className="text-white cursor-pointer bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">hire me</Link>
+    <Link href="https://mail.google.com/mail/?view=cm&to=keithkelly986@gmail.com&su=Let us talk!" target="_blank" className="text-white cursor-pointer bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 hover:scale-105 transition-transform duration-300 ease-in-out">hire me</Link>
   </div>
 
   <div className="invisible items-center justify-between hidden w-full md:flex md:w-auto md:order-1 rounded-4xl border border-gray-800 p-2 backdrop-blur-sm bg-white/30 dark:bg-gray-800">
