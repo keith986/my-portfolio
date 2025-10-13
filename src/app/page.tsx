@@ -1,5 +1,5 @@
 "use client"
-import {useState, useActionState} from "react"
+import {useState, useEffect, useActionState} from "react"
 import Image from "next/image";
 import Link from 'next/link'
 import $ from "jquery"
@@ -10,6 +10,7 @@ export default function Home (){
   const [work2, setWork2] = useState(false)
   const [work3, setWork3] = useState(false)
   const [state,myaction,pending] = useActionState(handleMpesaSubmit, {success: false, error : null})
+  const [currentSlide, setCurrentSlide] = useState(0)
 
   const handleWorkOne = () => {
     setWork1(true)
@@ -88,12 +89,41 @@ export default function Home (){
     }
   }
 
+  const experiences = [
+    {
+      company: 'Swift Tracing & Consultancy Company Limited',
+      website: 'https://swifttracingconsultancy.com/',
+      image: '/images/swift.png',
+      description: 'This is my recent Project. Worked for Swift Tracing & Consultancy for a contracted Job that involved creating and maintaining there company website.'
+    },
+     {
+      company: 'MyOnstore',
+      website: 'https://myonstore.netlify.app/',
+      image: '/images/store.JPG',
+      description: 'Created a web app for a store delivery management platform with 200+ business customers to create, manage and monitor deliveries using React'
+    }
+  ];
+
+  const exp_slide= []
+
+  for(let i = 0; i < experiences.length; i += 1){
+    exp_slide.push(experiences.slice(i , i + 1))
+  }
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % exp_slide.length)
+    }, 5000)
+
+    return () => clearInterval(timer)
+  }, [exp_slide.length])
+
   return (
-    <>
+    <div className="bg-slate-500">
    <div className="p-3 md:flex justify-center grid md:grid-cols-2 gap-8 max-screen-w-full mx-auto overflow-hidden" id="content">
     <div className="flex flex-col justify-center items-start md:items-start align-center">
       <div className="flex justify-center items-center mx-auto">
-        <h1 className="text-6xl md:max-w-screen-sm font-bold py-6 px-4"><span className="text-white text-3xl">Hello I'm Keith,</span><br/> a seasoned Fullstack Developer.</h1>
+        <h1 className="md:text-6xl text-4xl md:max-w-screen-sm font-bold py-6 px-4 flex flex-col text-center"><span className="text-white md:text-3xl text-2xl">Hello I'm Keith,</span><br/> a seasoned Fullstack Developer.</h1>
       </div>
         <p className="flex text-gray-500 mb-4 hover:text-white text-start-2 text-lg px-4">
           <svg className="w-6 h-6 text-gray-500 dark:text-gray hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -103,20 +133,20 @@ export default function Home (){
           Nairobi, Kenya.
         </p>
         <div className="flex">
-            <Link href="https://github.com/keith986" target="_blank" className="flex justify-space-evenly rounded-4xl text-white cursor-pointer hover:blur-[0.5px] hover:border  bg-transparent-700 hover:bg-transparent-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium text-sm px-4 py-4 text-center dark:bg-transparent-600 dark:hover:bg-transparent-700 dark:focus:ring-gray-800 hover:scale-105 transition-transform duration-300 ease-in-out">
+            <Link href="https://github.com/keith986" target="_blank" className="flex justify-space-evenly rounded-4xl text-white cursor-pointer hover:blur-[0.5px] hover:scale-110  bg-transparent-700 hover:bg-transparent-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium text-sm px-4 py-4 text-center dark:bg-transparent-600 dark:hover:bg-transparent-700 dark:focus:ring-gray-800 hover:scale-105 transition-transform duration-300 ease-in-out">
               <svg className="w-6 h-6 text-white-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
               <path fillRule="evenodd" d="M12.006 2a9.847 9.847 0 0 0-6.484 2.44 10.32 10.32 0 0 0-3.393 6.17 10.48 10.48 0 0 0 1.317 6.955 10.045 10.045 0 0 0 5.4 4.418c.504.095.683-.223.683-.494 0-.245-.01-1.052-.014-1.908-2.78.62-3.366-1.21-3.366-1.21a2.711 2.711 0 0 0-1.11-1.5c-.907-.637.07-.621.07-.621.317.044.62.163.885.346.266.183.487.426.647.71.135.253.318.476.538.655a2.079 2.079 0 0 0 2.37.196c.045-.52.27-1.006.635-1.37-2.219-.259-4.554-1.138-4.554-5.07a4.022 4.022 0 0 1 1.031-2.75 3.77 3.77 0 0 1 .096-2.713s.839-.275 2.749 1.05a9.26 9.26 0 0 1 5.004 0c1.906-1.325 2.74-1.05 2.74-1.05.37.858.406 1.828.101 2.713a4.017 4.017 0 0 1 1.029 2.75c0 3.939-2.339 4.805-4.564 5.058a2.471 2.471 0 0 1 .679 1.897c0 1.372-.012 2.477-.012 2.814 0 .272.18.592.687.492a10.05 10.05 0 0 0 5.388-4.421 10.473 10.473 0 0 0 1.313-6.948 10.32 10.32 0 0 0-3.39-6.165A9.847 9.847 0 0 0 12.007 2Z" clipRule="evenodd"/>
               </svg>
               <span className="mx-2 mt-1">GitHub</span>
             </Link>
-            <Link href="https://www.linkedin.com/in/keith-baraka-69538136b" target="_blank" className="flex mx-4 text-white cursor-pointer hover:blur-[0.5px] hover:border  bg-transparent-700 hover:bg-transparent-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-4xl text-sm px-4 py-4 text-center dark:bg-transparent-600 dark:hover:bg-transparent-700 dark:focus:ring-gray-800 hover:scale-105 transition-transform duration-300 ease-in-out">
+            <Link href="https://www.linkedin.com/in/keith-baraka-69538136b" target="_blank" className="flex mx-4 text-white cursor-pointer hover:blur-[0.5px] hover:scale-110  bg-transparent-700 hover:bg-transparent-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-4xl text-sm px-4 py-4 text-center dark:bg-transparent-600 dark:hover:bg-transparent-700 dark:focus:ring-gray-800 hover:scale-105 transition-transform duration-300 ease-in-out">
               <svg className="w-6 h-6 text-white-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
               <path fillRule="evenodd" d="M12.51 8.796v1.697a3.738 3.738 0 0 1 3.288-1.684c3.455 0 4.202 2.16 4.202 4.97V19.5h-3.2v-5.072c0-1.21-.244-2.766-2.128-2.766-1.827 0-2.139 1.317-2.139 2.676V19.5h-3.19V8.796h3.168ZM7.2 6.106a1.61 1.61 0 0 1-.988 1.483 1.595 1.595 0 0 1-1.743-.348A1.607 1.607 0 0 1 5.6 4.5a1.601 1.601 0 0 1 1.6 1.606Z" clipRule="evenodd"/>
               <path d="M7.2 8.809H4V19.5h3.2V8.809Z"/>
               </svg>
               <span className="mx-2 mt-1">LinkedIn</span>
             </Link>
-            <Link href="https://mail.google.com/mailto:keithkelly986@gmail.com" target="_blank" className="flex text-white cursor-pointer hover:blur-[0.5px] hover:border bg-transparent-700 hover:bg-transparent-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-4xl text-sm px-4 py-4 text-center dark:bg-transparent-600 dark:hover:bg-transparent-700 dark:focus:ring-gray-800 hover:scale-105 transition-transform duration-300 ease-in-out">
+            <Link href="https://mail.google.com/mail/?view=cm&to=keithkelly986@gmail.com&su=Let us talk!" target="_blank" className="flex text-white cursor-pointer hover:blur-[0.5px] hover:scale-110 bg-transparent-700 hover:bg-transparent-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-4xl text-sm px-4 py-4 text-center dark:bg-transparent-600 dark:hover:bg-transparent-700 dark:focus:ring-gray-800 hover:scale-105 transition-transform duration-300 ease-in-out">
               <svg className="w-6 h-6 text-white-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
               <path stroke="currentColor" strokeLinecap="round" strokeWidth="2" d="m3.5 5.5 7.893 6.036a1 1 0 0 0 1.214 0L20.5 5.5M4 19h16a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Z"/>
               </svg>
@@ -130,15 +160,63 @@ export default function Home (){
         alt="Keith's profile picture"
         width={200}
         height={200}
-        className="rounded-full  mx-auto border-none shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out"
+        className="rounded-full mx-auto border-none"
       />
     </div>
    </div>
 
-<div className="mt-12 p-4 grid md:grid-cols-3 gap-4">
+  <div class="relative  bg-gradient-to-t from-blue-100 to-transparent">
+     <h1 className="flex justify-center text-2xl mb-12 mt-12" style={{fontFamily: "Tahoma"}}>My Recent Project</h1>
+      <div className="flex flex-row justify-center gap-8 mb-8 max-w-4xl  mx-auto">
+        {exp_slide[currentSlide].map((exp, index) => {
+          return (
+                <div
+                  key={index}
+                  className="group bg-white md:rounded-lg overflow-hidden md:shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-4 border-slate-200 relative md:m-0 m-1 rounded"
+                >
+                 <a href={exp.website} className="text-sm text-red-600 font-semibold" target="_blank"  rel="noopener noreferrer">
+                 <img src={exp.image} width={100} height={100} className="w-full object-cover h-50" alt="slide_img"/>
+                  </a>
+                  {/* Testimonial Content */}
+                  <div className="p-8">
+                    {/* Testimonial Text */}
+                    <p className="text-gray-700 mb-6 italic text-lg">
+                      "{exp.description}"
+                    </p>
+                    
+                    {/* Client Info */}
+                    <div className="text-left">
+                      <h3 className="text-xl font-bold text-slate-900">
+                        {exp.company}
+                      </h3>
+                      <a href={exp.website} className="text-sm text-red-600 font-semibold" target="_blank"  rel="noopener noreferrer">
+                        {exp.website}
+                      </a>
+                    </div>
+                  </div>
+                </div>
+          );
+        })}
+      </div>
+
+           <div className="flex justify-center gap-2">
+              {exp_slide.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`w-3 h-3 rounded-full transition-all ${
+                    currentSlide === index ? 'bg-red-600 w-8' : 'bg-gray-400'
+                  }`}
+                />
+              ))}
+            </div>
+    </div>
+
+<div className="p-4 grid md:grid-cols-3 gap-4 bg-gradient-to-b from-blue-100 to-transparent">
     <div className="mx-6 md:mt-34">  
-      <h2 className="text-2xl font-bold mb-4">Work Experience</h2>   
+      <h2 className="text-2xl font-bold mb-4 text-gray-800">Work Experience</h2>   
        <div className="flex flex-cols items-center md:mt-20">
+
         <div className="rotate-90">
     <ol className="flex items-center w-full">
     <li className={work1 ? "flex cursor-pointer w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-blue-400 after:border-4 after:inline-block dark:after:border-blue-700 hover:opacity-75" : "flex cursor-pointer w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-100 after:border-4 after:inline-block dark:after:border-gray-700 hover:opacity-75"} onClick={handleWorkOne}>
@@ -150,29 +228,29 @@ export default function Home (){
     <li className="flex cursor-pointer items-center w-full" onClick={handleWorkThree}>
         <span className={work3 ? "flex items-center justify-center w-10 h-10 bg-blue-400 rounded-full lg:h-12 lg:w-12 dark:bg-blue-700 shrink-0 hover:opacity-75" : "flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0 hover:opacity-75"}></span>
     </li> 
-    </ol>
+    </ol> 
         </div>
         <div>
-          <div className="my-3" id="work1">
-          <p className="text-gray-500">Rinarack Limited</p>
-          <p className="text-gray-500">Front-End Developer</p>
+          <div className="my-3 hidden" id="work1">
+          <p className="text-gray-500">Swift Tracing & Consultancy Limited</p>
+          <p className="text-gray-500">Web Developer</p>
+          <i className="text-sm">Worked for Swift Tracing & Consultancy for a contracted Job that involved creating and maintaining there company website.</i>
+          </div>
+          <div className="my-3" id="work2">
+          <p className="text-gray-500">Upwork ~ Freelancer</p>
+          <p className="text-gray-500">Web Developer</p>
           <i className="text-sm">Created a web app for a store delivery management platform with 200+ business customers to create, manage and monitor deliveries using React.</i>
           </div>
-          <div className="my-3 hidden" id="work2">
-          <p className="text-gray-500">FunGo Logistics</p>
-          <p className="text-gray-500">Web Developer</p>
-          <i className="text-sm">Contributed to the development of a logistics web application that streamlined delivery processes and improved customer satisfaction.</i>
-          </div>
           <div className="my-3 hidden" id="work3">
-          <p className="text-gray-500">KSMS</p>
-          <p className="text-gray-500">Software Developer</p>
+          <p className="text-gray-500">Upwork ~ Freelancer</p>
+          <p className="text-gray-500">Web Developer</p>
           <i className="text-sm">Developed a web application for a school management system that automated administrative tasks and improved communication between teachers, students, and parents.</i>
           </div>
         </div>
        </div>
     </div>
 <div className="col-span-2 -skew-2 hover:-skew-1 rotate-x-5 -rotate-y-10 scale-80 hover:scale-83 transition-transform duration-300 ease-in-out">
-<div>  
+<div className="appearse">  
 <nav className="w-full bg-transparent z-30">
           <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-4 py-1">
           <div></div>
@@ -778,7 +856,7 @@ I have strong understanding for both technical implementation and business requi
   <p>&copy; {new Date().getFullYear()}</p>
 </div>
 
-   </>
+   </div>
   );
 }
 

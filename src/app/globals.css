@@ -20,9 +20,9 @@
 }
 
 body {
-  background: var(--background);
+  background: #ededed;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Tahoma ,Arial, Helvetica, sans-serif;
 }
 
 .nav-option[title]:hover::after {
@@ -35,6 +35,23 @@ body {
     position: absolute;
     top: 0%;
  }
+
+ .appearse {
+  animation: blockse  5s linear;
+  animation-timeline: view();
+  animation-range: entry 0 cover 50%;
+}
+
+@keyframes blockse {
+  from {
+    opacity: 0;
+    scale: 0.5;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  } 
+}
 
 @media screen and (max-width:768px){
   .nav-option[title]:hover::after{
