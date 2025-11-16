@@ -91,8 +91,14 @@ export default function Home (){
 
   const experiences = [
     {
+      company: 'SHORT RIDGE MANGO & AVOCADO FRUITS EXPORTERS LTD',
+      website: 'https://shortridge.netlify.app/',
+      image: '/images/shortridge.png',
+      description: 'Created a premier agribusiness company dedicated to exporting fresh, high-quality mangoes and avocados from Kenya to global markets.'
+    },
+    {
       company: 'Swift Tracing & Consultancy Company Limited',
-      website: 'https://swifttracingconsultancy.com/',
+      website: 'https://swifttracingandconsultancy.netlify.app/',
       image: '/images/swift.png',
       description: 'This is my recent Project. Worked for Swift Tracing & Consultancy for a contracted Job that involved creating and maintaining there company website.'
     },
@@ -165,7 +171,7 @@ export default function Home (){
     </div>
    </div>
 
-  <div class="relative  bg-gradient-to-t from-blue-100 to-transparent">
+  <div className="relative bg-gradient-to-t from-blue-100 to-transparent">
      <h1 className="flex justify-center text-2xl mb-12 mt-12" style={{fontFamily: "Tahoma"}}>My Recent Project</h1>
       <div className="flex flex-row justify-center gap-8 mb-8 max-w-4xl  mx-auto">
         {exp_slide[currentSlide].map((exp, index) => {
@@ -177,9 +183,9 @@ export default function Home (){
                  <a href={exp.website} className="text-sm text-red-600 font-semibold" target="_blank"  rel="noopener noreferrer">
                  <img src={exp.image} width={100} height={100} className="w-full object-cover h-50" alt="slide_img"/>
                   </a>
-                  {/* Testimonial Content */}
+                  {/* Content */}
                   <div className="p-8">
-                    {/* Testimonial Text */}
+                    {/* Text */}
                     <p className="text-gray-700 mb-6 italic text-lg">
                       "{exp.description}"
                     </p>
