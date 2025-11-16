@@ -131,7 +131,7 @@ export default function Home (){
       <div className="flex justify-center items-center mx-auto">
         <h1 className="md:text-6xl text-4xl md:max-w-screen-sm font-bold py-6 px-4 flex flex-col text-center"><span className="text-white md:text-3xl text-2xl">Hello I'm Keith,</span><br/> a seasoned Fullstack Developer.</h1>
       </div>
-        <p className="flex text-gray-500 mb-4 hover:text-white text-start-2 text-lg px-4">
+        <p className="flex text-gray-500 mb-4 hover:text-white text-start-2 text-lg px-4 hidden">
           <svg className="w-6 h-6 text-gray-500 dark:text-gray hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
           <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
           <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.8 13.938h-.011a7 7 0 1 0-11.464.144h-.016l.14.171c.1.127.2.251.3.371L12 21l5.13-6.248c.194-.209.374-.429.54-.659l.13-.155Z"/>
