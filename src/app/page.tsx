@@ -91,8 +91,14 @@ export default function Home (){
 
   const experiences = [
     {
+      company: 'SHORT RIDGE MANGO & AVOCADO FRUITS EXPORTERS LTD',
+      website: 'https://shortridge.netlify.app/',
+      image: '/images/shortridge.png',
+      description: 'Create a premier agribusiness company dedicated to exporting fresh, high-quality mangoes and avocados from Kenya to global markets.'
+    },
+    {
       company: 'Swift Tracing & Consultancy Company Limited',
-      website: 'https://swifttracingconsultancy.com/',
+      website: 'https://swifttracingandconsultancy.netlify.app/',
       image: '/images/swift.png',
       description: 'This is my recent Project. Worked for Swift Tracing & Consultancy for a contracted Job that involved creating and maintaining there company website.'
     },
