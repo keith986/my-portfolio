@@ -89,6 +89,35 @@ export default function Home (){
     }
   }
 
+  const experiences = [
+    {
+      company: 'Swift Tracing & Consultancy Company Limited',
+      website: 'https://swifttracingconsultancy.com/',
+      image: '/images/swift.png',
+      description: 'This is my recent Project. Worked for Swift Tracing & Consultancy for a contracted Job that involved creating and maintaining there company website.'
+    },
+     {
+      company: 'MyOnstore',
+      website: 'https://myonstore.netlify.app/',
+      image: '/images/store.JPG',
+      description: 'Created a web app for a store delivery management platform with 200+ business customers to create, manage and monitor deliveries using React'
+    }
+  ];
+
+  const exp_slide= []
+
+  for(let i = 0; i < experiences.length; i += 1){
+    exp_slide.push(experiences.slice(i , i + 1))
+  }
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % exp_slide.length)
+    }, 5000)
+
+    return () => clearInterval(timer)
+  }, [exp_slide.length])
+
   return (
     <div className="bg-slate-500">
    <div className="p-3 md:flex justify-center grid md:grid-cols-2 gap-8 max-screen-w-full mx-auto overflow-hidden" id="content">
@@ -136,7 +165,54 @@ export default function Home (){
     </div>
    </div>
 
-<div className="mt-12 p-4 grid md:grid-cols-3 gap-4">
+  <div className="relative bg-gradient-to-t from-blue-100 to-transparent">
+     <h1 className="flex justify-center text-2xl mb-12 mt-12" style={{fontFamily: "Tahoma"}}>My Recent Project</h1>
+      <div className="flex flex-row justify-center gap-8 mb-8 max-w-4xl  mx-auto">
+        {exp_slide[currentSlide].map((exp, index) => {
+          return (
+                <div
+                  key={index}
+                  className="group bg-white md:rounded-lg overflow-hidden md:shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-4 border-slate-200 relative md:m-0 m-1 rounded"
+                >
+                 <a href={exp.website} className="text-sm text-red-600 font-semibold" target="_blank"  rel="noopener noreferrer">
+                 <img src={exp.image} width={100} height={100} className="w-full object-cover h-50" alt="slide_img"/>
+                  </a>
+                  {/* Testimonial Content */}
+                  <div className="p-8">
+                    {/* Testimonial Text */}
+                    <p className="text-gray-700 mb-6 italic text-lg">
+                      "{exp.description}"
+                    </p>
+                    
+                    {/* Client Info */}
+                    <div className="text-left">
+                      <h3 className="text-xl font-bold text-slate-900">
+                        {exp.company}
+                      </h3>
+                      <a href={exp.website} className="text-sm text-red-600 font-semibold" target="_blank"  rel="noopener noreferrer">
+                        {exp.website}
+                      </a>
+                    </div>
+                  </div>
+                </div>
+          );
+        })}
+      </div>
+
+           <div className="flex justify-center gap-2">
+              {exp_slide.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`w-3 h-3 rounded-full transition-all ${
+                    currentSlide === index ? 'bg-red-600 w-8' : 'bg-gray-400'
+                  }`}
+                />
+              ))}
+            </div>
+    </div>
+
+<div className="p-4 grid md:grid-cols-3 gap-4 bg-gradient-to-b from-blue-100 to-transparent">
     <div className="mx-6 md:mt-34">  
       <h2 className="text-2xl font-bold mb-4 text-gray-800">Work Experience</h2>   
        <div className="flex flex-cols items-center md:mt-20">
@@ -783,4 +859,3 @@ I have strong understanding for both technical implementation and business requi
    </div>
   );
 }
-
